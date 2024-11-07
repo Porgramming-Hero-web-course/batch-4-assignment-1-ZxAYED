@@ -45,3 +45,41 @@ return result
 
  }
  console.log(countWordOccurrences(' Keno ei nisshongota,  keNo ei mounota ', 'KENO'));
+
+
+//   problem 4
+interface Circle {
+   shape : 'circle',
+   radius:number
+}
+interface Rectangle {
+   shape:'rectangle' ,
+   height: number,
+   width:number
+}
+ type UnionType = Circle | Rectangle
+
+  const calculateShapeArea =(params:UnionType):number=>{
+   if(params.shape ==="circle"){
+      return 3.1416*params.radius*params.radius
+   }
+   if(params.shape==='rectangle'){
+      return params.height *params.width
+   }
+   else{
+      console.log('Invalid input');
+   }
+  }
+  const circleArea =calculateShapeArea({shape:"circle", radius:1})
+  console.log(circleArea);
+  const rectangleArea =calculateShapeArea({shape:"rectangle", height:2,width:6})
+  console.log(rectangleArea);
+
+//   problem 5
+
+
+function getProperty <T,Q extends keyof T>(obj:T,key:Q){
+   return obj[key]
+}
+const person = { name: "Alice", age: 30 };
+console.log(getProperty(person, "name"));
